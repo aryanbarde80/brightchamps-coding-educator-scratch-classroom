@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-label="Hide and Seek screenshot mockup">
+  <rect width="960" height="540" fill="#f2efff"/>
+  <text x="40" y="68" font-family="Arial" font-size="34" font-weight="700" fill="#172033">Hide And Seek</text>
+  <text x="690" y="68" font-family="Arial" font-size="26" font-weight="700" fill="#172033">Time: 24 Score: 5</text>
+  <rect x="110" y="140" width="180" height="240" rx="8" fill="#ffc857"/>
+  <rect x="420" y="120" width="160" height="270" rx="8" fill="#276ef1"/>
+  <rect x="700" y="160" width="130" height="220" rx="8" fill="#20b486"/>
+  <circle cx="516" cy="285" r="26" fill="#ff5a5f"/>
+  <text x="470" y="455" font-family="Arial" font-size="24" font-weight="700" fill="#172033">Find the hidden sprite!</text>
+</svg>
+

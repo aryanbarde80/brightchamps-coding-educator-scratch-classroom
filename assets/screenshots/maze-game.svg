@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-label="Maze Game screenshot mockup">
+  <rect width="960" height="540" fill="#f7f9fc"/>
+  <text x="40" y="58" font-family="Arial" font-size="32" font-weight="700" fill="#172033">Maze Game</text>
+  <g fill="none" stroke="#172033" stroke-width="22" stroke-linecap="square">
+    <path d="M80 110h800v340H80z"/>
+    <path d="M190 110v250"/>
+    <path d="M310 210h300"/>
+    <path d="M480 110v100"/>
+    <path d="M650 210v240"/>
+    <path d="M310 340h230"/>
+  </g>
+  <circle cx="125" cy="395" r="28" fill="#276ef1"/>
+  <rect x="800" y="145" width="54" height="54" rx="6" fill="#20b486"/>
+</svg>
+

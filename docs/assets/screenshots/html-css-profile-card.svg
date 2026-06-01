@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-label="HTML CSS profile card screenshot mockup">
+  <rect width="960" height="540" fill="#f4f7fb"/>
+  <rect x="170" y="125" width="620" height="290" rx="8" fill="#ffffff" stroke="#dbe3ef"/>
+  <circle cx="290" cy="270" r="72" fill="#20b486"/>
+  <text x="248" y="284" font-family="Arial" font-size="42" font-weight="700" fill="#ffffff">BC</text>
+  <text x="400" y="205" font-family="Arial" font-size="14" font-weight="700" fill="#276ef1">BRIGHTCHAMPS DEMO</text>
+  <text x="400" y="250" font-family="Arial" font-size="38" font-weight="700" fill="#172033">Aarav's Coding Club</text>
+  <text x="400" y="292" font-family="Arial" font-size="18" fill="#526070">A beginner-friendly profile card built with HTML and CSS.</text>
+  <rect x="400" y="325" width="130" height="38" rx="6" fill="#eef5ff"/>
+  <rect x="540" y="325" width="110" height="38" rx="6" fill="#eef5ff"/>
+  <rect x="400" y="378" width="140" height="42" rx="6" fill="#172033"/>
+  <text x="424" y="405" font-family="Arial" font-size="15" font-weight="700" fill="#ffffff">Start Learning</text>
+</svg>
+

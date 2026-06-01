@@ -10,6 +10,10 @@ The interview expects a 20-30 minute live demonstration where you teach a small 
 
 Use `scratch-projects/fruit-catcher` if you want the safest and simplest Scratch demo. It is visual, beginner-friendly, and easy to explain with events, loops, conditionals, variables, and collision detection.
 
+**Primary selection:** Fruit Catcher in Scratch.
+
+This selection is kept as the main interview demo because it directly matches the BrightChamps document and is the strongest option for a classroom-style explanation.
+
 ## Repository Structure
 
 ```text
@@ -55,6 +59,10 @@ Use `scratch-projects/fruit-catcher` if you want the safest and simplest Scratch
 - [Interview Preparation Plan](docs/interview-preparation-plan.md)
 - [Teaching Script](docs/teaching-script.md)
 - [Architecture Overview](docs/architecture.md)
+- [Document Requirements Audit](docs/document-requirements-audit.md)
+- [Official And Reference Resources](docs/resources.md)
+- [Selected Fruit Catcher Demo Plan](docs/selected-demo-fruit-catcher.md)
+- [Original BrightChamps Document With Original Filename](assets/documents/Brightchamps_%20Coding.docx)
 - [Original BrightChamps Document](assets/documents/Brightchamps_Coding.docx)
 - [Original BrightChamps PDF](assets/documents/Brightchamps_Coding.pdf)
 

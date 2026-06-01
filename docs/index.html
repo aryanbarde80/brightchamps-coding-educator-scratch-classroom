@@ -1,0 +1,694 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>BrightChamps Coding Educator Prep</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      :root {
+        --ink: #142033;
+        --muted: #5d6878;
+        --line: #dce4ee;
+        --paper: #ffffff;
+        --soft: #f4f7fb;
+        --blue: #276ef1;
+        --green: #16a37a;
+        --yellow: #f5a524;
+        --red: #e84d5b;
+      }
+
+      body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        color: var(--ink);
+        background: var(--soft);
+      }
+
+      a {
+        color: inherit;
+      }
+
+      .topbar {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        border-bottom: 1px solid rgba(220, 228, 238, 0.9);
+        background: rgba(255, 255, 255, 0.92);
+        backdrop-filter: blur(14px);
+      }
+
+      .nav {
+        width: min(1180px, calc(100% - 32px));
+        min-height: 64px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-weight: 800;
+      }
+
+      .mark {
+        width: 36px;
+        height: 36px;
+        display: grid;
+        place-items: center;
+        border-radius: 8px;
+        background: var(--ink);
+        color: #fff;
+      }
+
+      .links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        gap: 14px;
+        font-size: 14px;
+        color: var(--muted);
+      }
+
+      .links a {
+        text-decoration: none;
+      }
+
+      .links a:hover {
+        color: var(--blue);
+      }
+
+      .hero {
+        border-bottom: 1px solid var(--line);
+        background:
+          linear-gradient(135deg, rgba(39, 110, 241, 0.11), rgba(22, 163, 122, 0.09)),
+          #ffffff;
+      }
+
+      .hero-inner {
+        width: min(1180px, calc(100% - 32px));
+        margin: 0 auto;
+        padding: 72px 0 52px;
+        display: grid;
+        grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
+        gap: 44px;
+        align-items: center;
+      }
+
+      .kicker {
+        margin: 0 0 14px;
+        color: var(--blue);
+        font-size: 13px;
+        font-weight: 800;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        margin: 0;
+        max-width: 760px;
+        font-size: clamp(40px, 7vw, 76px);
+        line-height: 0.98;
+        letter-spacing: 0;
+      }
+
+      .lead {
+        max-width: 680px;
+        margin: 22px 0 0;
+        color: var(--muted);
+        font-size: 20px;
+        line-height: 1.55;
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 28px;
+      }
+
+      .button {
+        min-height: 46px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 18px;
+        border: 1px solid var(--ink);
+        border-radius: 7px;
+        background: var(--ink);
+        color: #fff;
+        font-weight: 800;
+        text-decoration: none;
+      }
+
+      .button.secondary {
+        background: #fff;
+        color: var(--ink);
+      }
+
+      .hero-panel {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fff;
+        overflow: hidden;
+        box-shadow: 0 24px 70px rgba(26, 39, 66, 0.12);
+      }
+
+      .panel-head {
+        padding: 18px 20px;
+        border-bottom: 1px solid var(--line);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+      }
+
+      .panel-title {
+        margin: 0;
+        font-size: 18px;
+        font-weight: 800;
+      }
+
+      .pill {
+        display: inline-flex;
+        align-items: center;
+        min-height: 28px;
+        padding: 0 10px;
+        border-radius: 999px;
+        background: #eafaf5;
+        color: #08785a;
+        font-size: 12px;
+        font-weight: 800;
+      }
+
+      .panel-body {
+        padding: 20px;
+      }
+
+      .metric-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .metric {
+        min-height: 94px;
+        padding: 16px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fbfcff;
+      }
+
+      .metric strong {
+        display: block;
+        margin-bottom: 8px;
+        font-size: 26px;
+      }
+
+      .metric span {
+        color: var(--muted);
+        font-size: 14px;
+        line-height: 1.35;
+      }
+
+      main {
+        width: min(1180px, calc(100% - 32px));
+        margin: 0 auto;
+        padding: 42px 0 72px;
+      }
+
+      section {
+        margin-top: 44px;
+      }
+
+      .section-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: end;
+        gap: 24px;
+        margin-bottom: 18px;
+      }
+
+      h2 {
+        margin: 0;
+        font-size: 30px;
+        line-height: 1.15;
+      }
+
+      .section-head p {
+        max-width: 520px;
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.55;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 16px;
+      }
+
+      .card {
+        min-height: 100%;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--paper);
+        overflow: hidden;
+      }
+
+      .card img {
+        width: 100%;
+        display: block;
+        aspect-ratio: 16 / 9;
+        object-fit: cover;
+        border-bottom: 1px solid var(--line);
+        background: #eef3f9;
+      }
+
+      .card-content {
+        padding: 18px;
+      }
+
+      .tag {
+        display: inline-flex;
+        min-height: 26px;
+        align-items: center;
+        padding: 0 9px;
+        border-radius: 999px;
+        background: #eef5ff;
+        color: #1557c0;
+        font-size: 12px;
+        font-weight: 800;
+      }
+
+      .tag.green {
+        background: #eafaf5;
+        color: #08785a;
+      }
+
+      .tag.yellow {
+        background: #fff5db;
+        color: #8f5b00;
+      }
+
+      .card h3 {
+        margin: 14px 0 8px;
+        font-size: 21px;
+      }
+
+      .card p {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.55;
+      }
+
+      .card a {
+        display: inline-flex;
+        margin-top: 14px;
+        font-weight: 800;
+        color: var(--blue);
+        text-decoration: none;
+      }
+
+      .timeline {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .step {
+        padding: 18px;
+        border-left: 5px solid var(--blue);
+        border-radius: 8px;
+        background: #fff;
+        border-top: 1px solid var(--line);
+        border-right: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+      }
+
+      .step:nth-child(2) {
+        border-left-color: var(--green);
+      }
+
+      .step:nth-child(3) {
+        border-left-color: var(--yellow);
+      }
+
+      .step:nth-child(4) {
+        border-left-color: var(--red);
+      }
+
+      .step strong {
+        display: block;
+        margin-bottom: 8px;
+        font-size: 18px;
+      }
+
+      .step span {
+        color: var(--muted);
+        line-height: 1.5;
+      }
+
+      .split {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(300px, 0.75fr);
+        gap: 18px;
+        align-items: start;
+      }
+
+      .list-panel {
+        padding: 22px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fff;
+      }
+
+      .list-panel ul {
+        margin: 14px 0 0;
+        padding-left: 20px;
+        color: var(--muted);
+        line-height: 1.75;
+      }
+
+      .resource-list {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .resource {
+        min-height: 72px;
+        padding: 14px 16px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fff;
+        text-decoration: none;
+      }
+
+      .resource strong {
+        display: block;
+        margin-bottom: 5px;
+      }
+
+      .resource span {
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      .footer {
+        padding: 28px 0;
+        border-top: 1px solid var(--line);
+        color: var(--muted);
+        text-align: center;
+      }
+
+      @media (max-width: 920px) {
+        .hero-inner,
+        .split {
+          grid-template-columns: 1fr;
+        }
+
+        .grid,
+        .timeline,
+        .resource-list {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .section-head {
+          align-items: start;
+          flex-direction: column;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .nav {
+          align-items: flex-start;
+          flex-direction: column;
+          padding: 14px 0;
+        }
+
+        .links {
+          justify-content: flex-start;
+        }
+
+        .hero-inner {
+          padding-top: 48px;
+        }
+
+        .metric-grid,
+        .grid,
+        .timeline,
+        .resource-list {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="topbar">
+      <nav class="nav" aria-label="Main navigation">
+        <div class="brand">
+          <div class="mark">BC</div>
+          <span>BrightChamps Prep</span>
+        </div>
+        <div class="links">
+          <a href="#projects">Projects</a>
+          <a href="#demo">Demo Plan</a>
+          <a href="#docs">Documents</a>
+          <a href="#resources">Resources</a>
+        </div>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="hero-inner">
+        <div>
+          <p class="kicker">Coding Educator Mock Interview Pack</p>
+          <h1>Scratch classroom demo, teaching scripts, and backup coding projects.</h1>
+          <p class="lead">
+            A complete web document for the repository: four Scratch game plans, one HTML/CSS project,
+            one Python project, original BrightChamps materials, reference links, diagrams, and a
+            ready 30-minute Fruit Catcher teaching flow.
+          </p>
+          <div class="hero-actions">
+            <a class="button" href="../scratch-projects/fruit-catcher/">Open Main Demo</a>
+            <a class="button secondary" href="selected-demo-fruit-catcher.md">Read Class Plan</a>
+          </div>
+        </div>
+        <aside class="hero-panel" aria-label="Repository summary">
+          <div class="panel-head">
+            <p class="panel-title">Primary Selection</p>
+            <span class="pill">Fruit Catcher</span>
+          </div>
+          <div class="panel-body">
+            <div class="metric-grid">
+              <div class="metric">
+                <strong>4</strong>
+                <span>Scratch game guides from the BrightChamps document</span>
+              </div>
+              <div class="metric">
+                <strong>2</strong>
+                <span>Alternative simple projects in HTML/CSS and Python</span>
+              </div>
+              <div class="metric">
+                <strong>30</strong>
+                <span>Minute classroom-style demo structure</span>
+              </div>
+              <div class="metric">
+                <strong>1</strong>
+                <span>Requirements audit mapping the document to repo work</span>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <main>
+      <section id="projects">
+        <div class="section-head">
+          <h2>Project Tracks</h2>
+          <p>Each project is designed to be explained like a live classroom session, with clear concepts and simple extensions.</p>
+        </div>
+        <div class="grid">
+          <article class="card">
+            <img src="../assets/screenshots/fruit-catcher.svg" alt="Fruit Catcher mockup">
+            <div class="card-content">
+              <span class="tag green">Selected Demo</span>
+              <h3>Fruit Catcher</h3>
+              <p>Keyboard movement, falling fruit, score variable, random positions, and collision detection.</p>
+              <a href="../scratch-projects/fruit-catcher/">Open guide</a>
+            </div>
+          </article>
+          <article class="card">
+            <img src="../assets/screenshots/maze-game.svg" alt="Maze Game mockup">
+            <div class="card-content">
+              <span class="tag">Scratch</span>
+              <h3>Maze Game</h3>
+              <p>Coordinates, wall detection, goal logic, reset behavior, and movement rules.</p>
+              <a href="../scratch-projects/maze-game/">Open guide</a>
+            </div>
+          </article>
+          <article class="card">
+            <img src="../assets/screenshots/dino-jump.svg" alt="Dino Jump mockup">
+            <div class="card-content">
+              <span class="tag">Scratch</span>
+              <h3>Dino Jump</h3>
+              <p>Jumping, gravity, obstacles, game over conditions, and score progression.</p>
+              <a href="../scratch-projects/dino-jump/">Open guide</a>
+            </div>
+          </article>
+          <article class="card">
+            <img src="../assets/screenshots/hide-and-seek.svg" alt="Hide and Seek mockup">
+            <div class="card-content">
+              <span class="tag">Scratch</span>
+              <h3>Hide And Seek</h3>
+              <p>Mouse clicks, random positions, timer logic, score tracking, and player engagement.</p>
+              <a href="../scratch-projects/hide-and-seek/">Open guide</a>
+            </div>
+          </article>
+          <article class="card">
+            <img src="../assets/screenshots/html-css-profile-card.svg" alt="HTML CSS profile card mockup">
+            <div class="card-content">
+              <span class="tag yellow">HTML/CSS</span>
+              <h3>Profile Card</h3>
+              <p>A responsive student profile card that demonstrates HTML structure and CSS styling.</p>
+              <a href="../html-css-project/">Open project</a>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card-content">
+              <span class="tag yellow">Python</span>
+              <h3>Number Quest</h3>
+              <p>A number guessing game covering input, loops, conditions, functions, and random numbers.</p>
+              <a href="../python-project/">Open project</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="demo">
+        <div class="section-head">
+          <h2>30-Minute Demo Flow</h2>
+          <p>The interview asks for a live demonstration in a classroom environment. This flow keeps it structured and easy to deliver.</p>
+        </div>
+        <div class="timeline">
+          <div class="step">
+            <strong>Introduce</strong>
+            <span>Explain the game goal and learning outcome in simple language.</span>
+          </div>
+          <div class="step">
+            <strong>Show</strong>
+            <span>Play the final output first so the learner understands the target.</span>
+          </div>
+          <div class="step">
+            <strong>Build</strong>
+            <span>Walk through sprites, variables, loops, events, and conditions.</span>
+          </div>
+          <div class="step">
+            <strong>Recap</strong>
+            <span>Review the concepts and suggest one or two extension ideas.</span>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="section-head">
+          <h2>Architecture</h2>
+          <p>The repository includes a simple visual model of how a coding classroom demo moves from idea to interaction.</p>
+        </div>
+        <div class="split">
+          <article class="card">
+            <img src="../assets/diagrams/project-flow.svg" alt="Coding demo architecture diagram">
+          </article>
+          <div class="list-panel">
+            <h3>Core Teaching Concepts</h3>
+            <ul>
+              <li>Events start the program, such as clicking the green flag.</li>
+              <li>Loops keep the game checking input and rules continuously.</li>
+              <li>Variables store changing values like score, timer, speed, and lives.</li>
+              <li>Conditions decide what happens when sprites touch or keys are pressed.</li>
+              <li>Randomness makes games feel replayable and interactive.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="docs">
+        <div class="section-head">
+          <h2>Repository Documents</h2>
+          <p>These files make the repo usable as an interview preparation kit and as a hosted webdoc.</p>
+        </div>
+        <div class="resource-list">
+          <a class="resource" href="interview-preparation-plan.md">
+            <strong>Interview Preparation Plan</strong>
+            <span>What to prepare, how to practice, and how to answer common questions.</span>
+          </a>
+          <a class="resource" href="teaching-script.md">
+            <strong>Teaching Script</strong>
+            <span>Opening, concept explanations, classroom questions, and closing.</span>
+          </a>
+          <a class="resource" href="architecture.md">
+            <strong>Architecture Overview</strong>
+            <span>Mermaid diagrams for project flow and classroom strategy.</span>
+          </a>
+          <a class="resource" href="document-requirements-audit.md">
+            <strong>Requirements Audit</strong>
+            <span>Every actionable line from the BrightChamps document mapped to repo work.</span>
+          </a>
+          <a class="resource" href="resources.md">
+            <strong>Official Resources</strong>
+            <span>Scratch platform, demo video, Drive PDF link, and reference projects.</span>
+          </a>
+          <a class="resource" href="../assets/documents/Brightchamps_ Coding.docx">
+            <strong>Original DOCX</strong>
+            <span>The original BrightChamps document included with its original filename.</span>
+          </a>
+        </div>
+      </section>
+
+      <section id="resources">
+        <div class="section-head">
+          <h2>Reference Links</h2>
+          <p>Exact external resources from the original document, kept here for fast access during preparation.</p>
+        </div>
+        <div class="resource-list">
+          <a class="resource" href="https://scratch.mit.edu/">
+            <strong>Scratch Website</strong>
+            <span>Build and demonstrate Scratch projects live.</span>
+          </a>
+          <a class="resource" href="https://youtu.be/l74Z-ZRv3hg">
+            <strong>Scratch Platform Video</strong>
+            <span>Platform walkthrough linked from the document.</span>
+          </a>
+          <a class="resource" href="https://youtu.be/lAB77P0sgO8">
+            <strong>BrightChamps Demo Class</strong>
+            <span>Reference classroom demo video.</span>
+          </a>
+          <a class="resource" href="https://drive.google.com/file/d/1gxCNtutFz0b2LPlCAruEbaKQx-P-xzV1/view?usp=sharing">
+            <strong>Attached Drive Resource</strong>
+            <span>PDF/Drive resource linked inside the original document.</span>
+          </a>
+          <a class="resource" href="https://scratch.mit.edu/projects/560050703">
+            <strong>Fruit Catcher Reference</strong>
+            <span>Main selected Scratch project reference.</span>
+          </a>
+          <a class="resource" href="https://scratch.mit.edu/projects/637149216">
+            <strong>Maze Game Reference</strong>
+            <span>Alternative Scratch game reference.</span>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      BrightChamps Coding Educator Prep Pack - built for Netlify hosting from the docs folder.
+    </footer>
+  </body>
+</html>
